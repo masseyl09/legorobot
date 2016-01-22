@@ -6,6 +6,7 @@ import lejos.utility.Delay;
 
 // Basic test code found at:
 // http://thetechnicgear.com/2014/04/howto-install-lejos-0-8-1-lego-mindstorms-ev3/screenshot-6/
+// Testing!
 
 public class test {
 	
