@@ -12,5 +12,5 @@ Team members:
 
 ## Useful Links
 * [API](http://www.lejos.org/ev3/docs/)
-* [LeJOS](www.lejos.org)
+* [LeJOS](http://www.lejos.org)
 * [ScrumBoard](https://trello.com/b/KNaSt6sT/lego-robot)
