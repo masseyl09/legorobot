@@ -13,7 +13,7 @@ public class Speak {
 
 	}
 
-	public void Speak(){
+	public Speak(){
 
 	}
 

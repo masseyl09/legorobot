@@ -17,7 +17,7 @@ public class GeneralInformationInteraction extends Interaction {
 		super.finalize();
 	}
 
-	public void GeneralInformationInteraction(){
+	public GeneralInformationInteraction(){
 
 	}
 

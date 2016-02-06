@@ -13,7 +13,7 @@ public class IntroductionInteraction extends Interaction {
 		super.finalize();
 	}
 
-	public void IntroductionInteraction(){
+	public IntroductionInteraction(){
 
 	}
 

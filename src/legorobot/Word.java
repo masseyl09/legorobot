@@ -18,7 +18,7 @@ public class Word {
 
 	}
 
-	public void Word(){
+	public Word(){
 
 	}
 

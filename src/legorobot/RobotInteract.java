@@ -24,7 +24,7 @@ public class RobotInteract {
 
 	}
 
-	public void RobotInteract(){
+	public RobotInteract(){
 
 	}
 

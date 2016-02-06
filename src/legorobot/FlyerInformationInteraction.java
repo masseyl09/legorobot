@@ -17,7 +17,7 @@ public class FlyerInformationInteraction extends Interaction {
 		super.finalize();
 	}
 
-	public void FlyerInformationInteraction(){
+	public FlyerInformationInteraction(){
 
 	}
 

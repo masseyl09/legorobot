@@ -22,7 +22,7 @@ public class Hear {
 
 	}
 
-	public void Hear(){
+	public Hear(){
 
 	}
 

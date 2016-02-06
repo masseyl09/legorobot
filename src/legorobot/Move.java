@@ -26,7 +26,7 @@ public class Move {
 
 	}
 
-	public void Move(){
+	public Move(){
 
 	}
 

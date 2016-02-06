@@ -13,7 +13,7 @@ public class BasicInteraction extends Interaction {
 		super.finalize();
 	}
 
-	public void BasicInteraction(){
+	public BasicInteraction(){
 
 	}
 
