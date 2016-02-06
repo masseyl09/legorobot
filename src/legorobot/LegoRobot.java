@@ -1,4 +1,6 @@
+package legorobot;
 
+import java.util.Collection;
 
 /**
  * @author Jess
@@ -7,11 +9,11 @@
  */
 public class LegoRobot {
 
-	private Collection<Table> available_tables;
+	//private Collection<Table> available_tables;
 	public int current_tier;
 	public RobotInteract m_RobotInteract;
 	public Speak m_Speak;
-	public Hear <<Arduino>> m_Hear <<Arduino>>;
+	public Hear m_Hear;
 	public Move m_Move;
 
 	public LegoRobot(){
@@ -26,9 +28,9 @@ public class LegoRobot {
 	 * 
 	 * @param available_tables
 	 */
-	public int getTable(Collection<Table> available_tables){
+	/*public int getTable(Collection<Table> available_tables){
 		return 0;
-	}
+	}*/
 
 	public int main(){
 		return 0;

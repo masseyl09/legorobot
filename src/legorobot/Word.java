@@ -1,14 +1,16 @@
+package legorobot;
 
+import java.util.Collection;
 
 /**
  * @author Jess
  * @version 1.0
  * @created 06-Feb-2016 3:10:09 PM
  */
-public class Word <<Arduino>> {
+public class Word {
 
 	public String keyword;
-	public Hear <<Arduino>> m_Hear <<Arduino>>;
+	public Hear m_Hear;
 
 
 
@@ -16,7 +18,7 @@ public class Word <<Arduino>> {
 
 	}
 
-	public void Word <<Arduino>>(){
+	public void Word(){
 
 	}
 
@@ -25,8 +27,8 @@ public class Word <<Arduino>> {
 	 * @param text_string
 	 * @param available_tables
 	 */
-	public String getKeywords(String text_string, Collection<Table> available_tables){
+	/*public String getKeywords(String text_string, Collection<Table> available_tables){
 		return "";
-	}
+	}*/
 
 }

@@ -1,16 +1,18 @@
+package legorobot;
 
+import java.util.Collection;
 
 /**
  * @author Jess
  * @version 1.0
  * @created 06-Feb-2016 3:10:08 PM
  */
-public class Hear <<Arduino>> {
+public class Hear {
 
-	public Collection<Table> available_tables;
+	//public Collection<Table> available_tables;
 	public boolean confirm;
-	public SerialData data;
-	public RemotePort ears;
+	//public SerialData data;
+	//public RemotePort ears;
 	public String keyword;
 	public String text_string;
 
@@ -20,7 +22,7 @@ public class Hear <<Arduino>> {
 
 	}
 
-	public void Hear <<Arduino>>(){
+	public void Hear(){
 
 	}
 
@@ -52,16 +54,16 @@ public class Hear <<Arduino>> {
 	 * 
 	 * @param data
 	 */
-	public void setSountIn(SerialData data){
+	/*public void setSountIn(SerialData data){
 
-	}
+	}*/
 
 	/**
 	 * 
 	 * @param data
 	 */
-	public String speechToText(SerialData data){
+	/*public String speechToText(SerialData data){
 		return "";
-	}
+	}*/
 
 }
