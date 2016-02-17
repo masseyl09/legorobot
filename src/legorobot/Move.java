@@ -22,9 +22,9 @@ public class Move {
 
 
 
-	public void finalize() throws Throwable {
+	/*public void finalize() throws Throwable {
 
-	}
+	}*/
 
 	public Move(){
 
