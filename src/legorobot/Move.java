@@ -75,7 +75,7 @@ public class Move {
 		// Turn a random amount of degrees
 		
 		// Move again
-
+		move(1);
 	}
 
 	public void detect(){
