@@ -7,6 +7,7 @@ import java.util.Collection;
  * @version 1.0
  * @created 06-Feb-2016 3:10:08 PM
  */
+
 public class LegoRobot {
 
 	//private Collection<Table> available_tables;
@@ -17,7 +18,6 @@ public class LegoRobot {
 	public Move m_Move;
 
 	public LegoRobot(){
-
 	}
 
 	public void finalize() throws Throwable {
@@ -32,8 +32,12 @@ public class LegoRobot {
 		return 0;
 	}*/
 
-	public int main(){
-		return 0;
+	public static void main(String[] args) {
+		Move m_Move = new Move();
+		
+		// while there is no Keyword heard, move, detect, and avoid
+		m_Move.move(1);
+		
 	}
 
 	/**
