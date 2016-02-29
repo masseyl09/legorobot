@@ -52,7 +52,9 @@ public class Move {
 	
 	// In degrees per second
 	private double speed = 180;
-
+	
+	// For loop logic
+	private boolean am_moving = false;
 
 	public Move() {
 		
@@ -126,6 +128,8 @@ public class Move {
 		
 		if (move == 1) {
 			
+			am_moving = true;
+			
 			// Move forward to start
 			motor_left.synchronizeWith(motor_array);
 			motor_left.startSynchronization();
@@ -149,11 +153,12 @@ public class Move {
 		motor_left.stop();
 		motor_right.stop();
 		motor_left.endSynchronization();
+		am_moving = false;
 	}
 	
 	public boolean isRobotMoving() {
 		
-		if (motor_left.isMoving() || motor_right.isMoving()) {
+		if (motor_left.isMoving() || motor_right.isMoving() || am_moving) {
 			return true;
 		}
 		
