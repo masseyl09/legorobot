@@ -17,11 +17,7 @@ public class LegoRobot {
 	public Hear m_Hear;
 	public Move m_Move;
 
-	public LegoRobot(){
-	}
-
-	public void finalize() throws Throwable {
-
+	public LegoRobot() {
 	}
 
 	/**
@@ -35,8 +31,17 @@ public class LegoRobot {
 	public static void main(String[] args) {
 		Move m_Move = new Move();
 		
-		// while there is no Keyword heard, move, detect, and avoid
-		m_Move.move(1);
+		// Loop this somehow...
+		// Start moving (if not already moving)
+		if (!m_Move.isRobotMoving()) {
+			m_Move.startMoving(1);
+		}
+
+		// Listen for a keyword (maybe use a listener?)
+
+		// Stop moving when "Lea is heard", execute tier logic
+		
+
 		
 	}
 
@@ -44,7 +49,7 @@ public class LegoRobot {
 	 * 
 	 * @param current_tier
 	 */
-	public int setTable(int current_tier){
+	public int setTable(int current_tier) {
 		return 0;
 	}
 
