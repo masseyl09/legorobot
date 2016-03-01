@@ -76,7 +76,7 @@ public class Move {
 		ir_sample = new float[ir_distance.sampleSize()];
 	}
 
-	public void avoid() {
+	private void avoid() {
 		
 		// Back up slightly to ensure turn can be completed without accidentally hitting the obstacle
 		motor_left.synchronizeWith(motor_array);
@@ -88,8 +88,6 @@ public class Move {
 		// Turn a random amount of degrees (between 70 and 290 so we don't head right back into the obstacle)
 		Random random = new Random();
 		int random_degrees = random.nextInt(290 - 70 + 1) + 70;
-		// Debugging
-		System.out.println(random_degrees);
 		
 		motor_left.synchronizeWith(motor_array);
 		motor_left.startSynchronization();
@@ -101,7 +99,7 @@ public class Move {
 		startMoving(1);
 	}
 
-	public void detect() {
+	private void detect() {
 		
 		// Look for obstacles
 		do {
