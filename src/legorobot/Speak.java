@@ -8,11 +8,6 @@ package legorobot;
 public class Speak {
 
 
-
-	public void finalize() throws Throwable {
-
-	}
-
 	public Speak(){
 
 	}
