@@ -1,5 +1,7 @@
 package legorobot;
 
+import javax.speech.Central;
+import javax.speech.synthesis.Synthesizer;
 /**
  * @author Jess
  * @version 1.0

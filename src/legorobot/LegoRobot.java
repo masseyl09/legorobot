@@ -30,12 +30,12 @@ public class LegoRobot {
 
 	public static void main(String[] args) {
 		Move m_Move = new Move();
-		
+		m_Move.startMoving(1);
 		// Loop this somehow...
 		// Start moving (if not already moving)
-		if (!m_Move.isRobotMoving()) {
+		/*if (!m_Move.isRobotMoving()) {
 			m_Move.startMoving(1);
-		}
+		}*/
 
 		// Listen for a keyword (maybe use a listener?)
 

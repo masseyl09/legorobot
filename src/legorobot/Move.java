@@ -45,7 +45,7 @@ public class Move {
 	private RegulatedMotor motor_left;
 	private RegulatedMotor motor_right;
 	private RegulatedMotor motor_arms;
-	private RegulatedMotor[] motor_array = {motor_right};
+	//private RegulatedMotor[] motor_array = {motor_right};
 	
 	// In degrees per second per second
 	private double acceleration = 60;
@@ -61,7 +61,7 @@ public class Move {
 		// Motors
 		motor_left = new EV3LargeRegulatedMotor(BrickFinder.getDefault().getPort("A"));
 		motor_right = new EV3LargeRegulatedMotor(BrickFinder.getDefault().getPort("C"));
-		motor_arms = new EV3MediumRegulatedMotor(BrickFinder.getDefault().getPort("B"));
+		//motor_arms = new EV3MediumRegulatedMotor(BrickFinder.getDefault().getPort("B"));
 		
 		// Sensors
 		//Port port3 = LocalEV3.get().getPort("S3");
@@ -79,40 +79,45 @@ public class Move {
 	private void avoid() {
 		
 		// Back up slightly to ensure turn can be completed without accidentally hitting the obstacle
-		motor_left.synchronizeWith(motor_array);
 		motor_left.startSynchronization();
-		motor_left.rotate(-360*3); // Three reverse wheel turns
-		motor_right.rotate(-360*3);
+		//motor_left.rotate(-360*3); // Three reverse wheel turns
+		//motor_right.rotate(-360*3);
+		motor_left.rotate(180); // Three reverse wheel turns
+		motor_right.rotate(180);
 		motor_left.endSynchronization();
 		
-		// Turn a random amount of degrees (between 70 and 290 so we don't head right back into the obstacle)
-		Random random = new Random();
-		int random_degrees = random.nextInt(290 - 70 + 1) + 70;
+		Delay.msDelay(500);
 		
-		motor_left.synchronizeWith(motor_array);
+		// Turn a random amount of degrees (between 120 and 290 so we don't head right back into the obstacle)
+		Random random = new Random();
+		int random_degrees = random.nextInt(290 - 120 + 1) + 120;
+		
 		motor_left.startSynchronization();
 		motor_left.rotate(-random_degrees); // One wheel goes backwards so that the robot turns in place
 		motor_right.rotate(random_degrees);
 		motor_left.endSynchronization();
 		
+		Delay.msDelay(500);
+		
 		// Start moving again
-		startMoving(1);
+		//startMoving(1);
 	}
 
 	private void detect() {
 		
 		// Look for obstacles
 		do {
-			// Look for objects by distance
+			// Look for objects by distance (note that she won't recognize black)
 			ir_distance.fetchSample(ir_sample, 0);
-		} while (ir_sample[0] > 30);
+		} while (ir_sample[0] > 45);
 		
 		// Upon detection of an object, stop movement
-		motor_left.synchronizeWith(motor_array);
 		motor_left.startSynchronization();
 		motor_left.stop();
 		motor_right.stop();
 		motor_left.endSynchronization();
+		
+		Delay.msDelay(500);
 		
 		// Run avoid
 		avoid();
@@ -126,13 +131,15 @@ public class Move {
 		
 		if (move == 1) {
 			
-			am_moving = true;
-			
+			//am_moving = true;
+
 			// Move forward to start
-			motor_left.synchronizeWith(motor_array);
+			motor_left.synchronizeWith(new RegulatedMotor[] {motor_right});
 			motor_left.startSynchronization();
-			motor_left.forward();
-			motor_right.forward();
+			//motor_left.forward();
+			//motor_right.forward();
+			motor_left.backward(); // It's backwards now for some reason (backward goes forward and vice versa).......
+			motor_right.backward();
 			motor_left.endSynchronization();
 
 			// Start detection "algorithm"
@@ -146,7 +153,7 @@ public class Move {
 	}
 	
 	public void stopMoving() {
-		motor_left.synchronizeWith(motor_array);
+		motor_left.synchronizeWith(new RegulatedMotor[] {motor_right});
 		motor_left.startSynchronization();
 		motor_left.stop();
 		motor_right.stop();
