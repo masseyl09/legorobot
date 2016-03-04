@@ -29,8 +29,10 @@ public class LegoRobot {
 	}*/
 
 	public static void main(String[] args) {
-		Move m_Move = new Move();
-		m_Move.startMoving(1);
+		//Move m_Move = new Move();
+		Speak m_Speak = new Speak();
+		m_Speak.respond("Hello");
+		//m_Move.startMoving(1);
 		// Loop this somehow...
 		// Start moving (if not already moving)
 		/*if (!m_Move.isRobotMoving()) {
