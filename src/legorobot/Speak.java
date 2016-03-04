@@ -31,6 +31,7 @@ public class Speak {
 		try{
 			Synthesizer leaTalk = Central.createSynthesizer(new SynthesizerModeDesc(null, "general", Locale.US, null, null));
 			leaTalk.speak(response, null);
+			leaTalk.waitEngineState(Synthesizer.QUEUE_EMPTY);
 
 		} catch (Exception e){
 			e.printStackTrace();
