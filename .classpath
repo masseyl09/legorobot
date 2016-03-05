@@ -4,7 +4,15 @@
 	<classpathentry kind="con" path="org.lejos.ev3.ldt.LEJOS_EV3_LIBRARY_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="var" path="JSAPI"/>
-	<classpathentry kind="lib" path="C:/Users/Lauren Massey/Documents/legorobot/jsapi.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/jsapi.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/cmu_time_awb.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/cmu_us_kal.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/cmudict04.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/cmulex.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/cmutimelex.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/en_us.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/freetts-jsapi10.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/freetts.jar"/>
+	<classpathentry kind="lib" path="/Users/JessUpde/legorobot/Resources/mbrola.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
