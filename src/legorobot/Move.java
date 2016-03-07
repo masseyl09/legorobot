@@ -15,6 +15,8 @@ import lejos.robotics.RegulatedMotor;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
 
+import lejos.hardware.Sound;
+
 /**
  * @author Jess
  * @version 1.0
@@ -82,15 +84,15 @@ public class Move {
 		motor_left.startSynchronization();
 		//motor_left.rotate(-360*3); // Three reverse wheel turns
 		//motor_right.rotate(-360*3);
-		motor_left.rotate(180); // Three reverse wheel turns
-		motor_right.rotate(180);
+		motor_left.rotate(180*2); // Three reverse wheel turns
+		motor_right.rotate(180*2);
 		motor_left.endSynchronization();
 		
 		Delay.msDelay(500);
 		
 		// Turn a random amount of degrees (between 120 and 290 so we don't head right back into the obstacle)
 		Random random = new Random();
-		int random_degrees = random.nextInt(290 - 120 + 1) + 120;
+		int random_degrees = random.nextInt(270 - 140 + 1) + 140;
 		
 		motor_left.startSynchronization();
 		motor_left.rotate(-random_degrees); // One wheel goes backwards so that the robot turns in place
@@ -100,7 +102,7 @@ public class Move {
 		Delay.msDelay(500);
 		
 		// Start moving again
-		//startMoving(1);
+		startMoving(1);
 	}
 
 	private void detect() {
@@ -109,7 +111,7 @@ public class Move {
 		do {
 			// Look for objects by distance (note that she won't recognize black)
 			ir_distance.fetchSample(ir_sample, 0);
-		} while (ir_sample[0] > 45);
+		} while (ir_sample[0] > 50);
 		
 		// Upon detection of an object, stop movement
 		motor_left.startSynchronization();
@@ -120,6 +122,7 @@ public class Move {
 		Delay.msDelay(500);
 		
 		// Run avoid
+		Sound.twoBeeps();
 		avoid();
 	}
 

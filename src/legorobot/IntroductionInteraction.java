@@ -7,14 +7,13 @@ package legorobot;
  */
 public class IntroductionInteraction extends Interaction {
 
-
-
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-
-	public IntroductionInteraction(){
-
+	public String opening = "Hi, I'm Lea!";
+	public String question = "Would you like information or a flyer?";
+	
+	public IntroductionInteraction() {
+		super();
+		toSpeak(opening);
+		toSpeak(question);
 	}
 
 	/**
@@ -22,15 +21,22 @@ public class IntroductionInteraction extends Interaction {
 	 * @param num_repeat
 	 * @param repeat
 	 */
-	public void repeat(int num_repeat, String repeat){
-
+	public void repeat(int num_repeat, String repeat) {
+		if (num_repeat == 0) {
+			toSpeak(repeat);
+			toSpeak(question);
+		}
+		
+		else {
+			toSpeak(exit);
+		}
 	}
 
 	/**
 	 * 
 	 * @param move
 	 */
-	public void toMove(String move){
+	public void toMove(boolean move) {
 
 	}
 
@@ -38,8 +44,8 @@ public class IntroductionInteraction extends Interaction {
 	 * 
 	 * @param phrase
 	 */
-	public void toSpeak(String phrase){
-
+	public String toSpeak(String phrase) {
+		return phrase;
 	}
 
 }

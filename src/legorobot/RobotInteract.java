@@ -9,32 +9,35 @@ public class RobotInteract {
 
 	private boolean confirmed;
 	private String keyword;
+	private int current_tier;
+	private int num_repeat = 0;
 	private BasicInteraction tierBasic;
 	private FlyerInformationInteraction tierFlyer;
 	private GeneralInformationInteraction tierGeneral;
 	private IntroductionInteraction tierIntroduction;
-	public FlyerInformationInteraction m_FlyerInformationInteraction;
-	public GeneralInformationInteraction m_GeneralInformationInteraction;
-	public BasicInteraction m_BasicInteraction;
-	public IntroductionInteraction m_IntroductionInteraction;
+	private Interaction tier;
 
 
 
-	public void finalize() throws Throwable {
-
+	public RobotInteract() {
 	}
-
-	public RobotInteract(){
-
-	}
-
+	
 	/**
 	 * 
 	 * @param confirm
 	 * @param current_tier
 	 */
-	public void checkConfirmation(boolean confirm, int current_tier){
-
+	public String checkConfirmation(boolean confirm, int current_tier) {
+		String result;
+		if (confirm == false) {
+			result = tierRepeat(keyword, current_tier, confirm);
+		}
+		
+		else {
+			result = tierStart(keyword, current_tier);
+		}
+		
+		return result;
 	}
 
 	/**
@@ -43,8 +46,13 @@ public class RobotInteract {
 	 * @param confirm
 	 * @param keyword
 	 */
-	public int runInteraction(int current_tier, boolean confirm, String keyword){
-		return 0;
+	public String runInteraction(int current_tier, boolean confirm, String keyword) {
+		confirmed = confirm;
+		this.keyword = keyword;
+		this.current_tier = current_tier;
+		String result = checkConfirmation(confirm, current_tier);
+		
+		return result;
 	}
 
 	/**
@@ -53,8 +61,9 @@ public class RobotInteract {
 	 * @param current_tier
 	 * @param confirm
 	 */
-	public int tierRepeat(String keyword, int current_tier, boolean confirm){
-		return 0;
+	public String tierRepeat(String keyword, int current_tier, boolean confirm) {
+		String result = "No";
+		return result;
 	}
 
 	/**
@@ -62,7 +71,14 @@ public class RobotInteract {
 	 * @param keyword
 	 * @param current_tier
 	 */
-	public void tierStart(String keyword, int current_tier){
+	public String tierStart(String keyword, int current_tier) {
+		String result = "Yes";
+		
+		if (current_tier == 0) {
+			tier = new IntroductionInteraction();	
+		}
+		
+		return result;
 
 	}
 

@@ -7,37 +7,23 @@ package legorobot;
  */
 public abstract class Interaction {
 
-	private String closing;
-	private String confirm;
-	private String exit;
-	private boolean move;
-	private String repeat;
-
-	public Interaction(){
-
+	protected String closing;
+	protected String confirm;
+	protected String exit;
+	protected boolean move;
+	protected String repeat;
+	
+	// Basic phrases all interactions share (unless they override a certain phrase)
+	public Interaction() {
+		closing = "Thank you for speaking with me. Goodbye.";
+		confirm = "Just to confirm, did you say"; //Will be completed in RobotInteract by concatenating the keyword to the string
+		exit = "I don't think I understood you. Goodbye.";
+		move = false;
+		repeat = "I'm sorry, I didn't understand you.";
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
-	/**
-	 * 
-	 * @param num_repeat
-	 * @param repeat
-	 */
 	public abstract void repeat(int num_repeat, String repeat);
-
-	/**
-	 * 
-	 * @param move
-	 */
-	public abstract void toMove(String move);
-
-	/**
-	 * 
-	 * @param phrase
-	 */
-	public abstract void toSpeak(String phrase);
+	public abstract void toMove(boolean move);
+	public abstract String toSpeak(String phrase);
 
 }

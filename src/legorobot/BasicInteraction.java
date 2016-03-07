@@ -6,40 +6,30 @@ package legorobot;
  * @created 06-Feb-2016 3:10:08 PM
  */
 public class BasicInteraction extends Interaction {
-
-
-
-	public void finalize() throws Throwable {
-		super.finalize();
+	public String opening = "Say Lea if you'd like to speak with me.";
+	public String question = "Did you say something?";
+	
+	public BasicInteraction() {
+		super();
+		toSpeak(opening);
 	}
 
-	public BasicInteraction(){
-
+	public void repeat(int num_repeat, String repeat) {
+		if (num_repeat == 0) {
+			toSpeak(repeat);
+			toSpeak(opening);
+		}
+		
+		else {
+			toSpeak(exit);
+		}
 	}
 
-	/**
-	 * 
-	 * @param num_repeat
-	 * @param repeat
-	 */
-	public void repeat(int num_repeat, String repeat){
-
-	}
-
-	/**
-	 * 
-	 * @param move
-	 */
-	public void toMove(String move){
+	public void toMove(boolean move) {
 
 	}
 
-	/**
-	 * 
-	 * @param phrase
-	 */
-	public void toSpeak(String phrase){
-
+	public String toSpeak(String phrase) {
+		return phrase;
 	}
-
 }

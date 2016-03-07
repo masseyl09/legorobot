@@ -12,10 +12,10 @@ public class LegoRobot {
 
 	//private Collection<Table> available_tables;
 	public int current_tier;
-	public RobotInteract m_RobotInteract;
-	public Speak m_Speak;
-	public Hear m_Hear;
-	public Move m_Move;
+	public static RobotInteract m_RobotInteract;
+	public static Speak m_Speak;
+	public static Hear m_Hear;
+	public static Move m_Move;
 
 	public LegoRobot() {
 	}
@@ -29,10 +29,18 @@ public class LegoRobot {
 	}*/
 
 	public static void main(String[] args) {
-		//Move m_Move = new Move();
-		Speak m_Speak = new Speak();
-		m_Speak.respond("Hello");
-		//m_Move.startMoving(1);
+		m_RobotInteract = new RobotInteract();
+		m_Move = new Move();
+		m_Speak = new Speak();
+		
+		m_Move.startMoving(1);
+		
+		// Forcing a keyword for now
+		//String keyword = "Lea";
+		//String response = m_RobotInteract.runInteraction(0, false, keyword);
+		
+		//m_Speak.respond(response);
+		
 		// Loop this somehow...
 		// Start moving (if not already moving)
 		/*if (!m_Move.isRobotMoving()) {
@@ -42,9 +50,6 @@ public class LegoRobot {
 		// Listen for a keyword (maybe use a listener?)
 
 		// Stop moving when "Lea is heard", execute tier logic
-		
-
-		
 	}
 
 	/**
