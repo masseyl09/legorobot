@@ -47,7 +47,6 @@ public class Move {
 	private RegulatedMotor motor_left;
 	private RegulatedMotor motor_right;
 	private RegulatedMotor motor_arms;
-	//private RegulatedMotor[] motor_array = {motor_right};
 	
 	// In degrees per second per second
 	private double acceleration = 60;
@@ -82,9 +81,7 @@ public class Move {
 		
 		// Back up slightly to ensure turn can be completed without accidentally hitting the obstacle
 		motor_left.startSynchronization();
-		//motor_left.rotate(-360*3); // Three reverse wheel turns
-		//motor_right.rotate(-360*3);
-		motor_left.rotate(180*2); // Three reverse wheel turns
+		motor_left.rotate(180*2); // 1 reverse wheel turn
 		motor_right.rotate(180*2);
 		motor_left.endSynchronization();
 		
@@ -107,7 +104,6 @@ public class Move {
 
 	private void detect() {
 		
-		// Look for obstacles
 		do {
 			// Look for objects by distance (note that she won't recognize black)
 			ir_distance.fetchSample(ir_sample, 0);

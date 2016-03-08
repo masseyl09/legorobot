@@ -6,24 +6,73 @@ package legorobot;
  * @created 06-Feb-2016 3:10:08 PM
  */
 public abstract class Interaction {
-
-	protected String closing;
-	protected String confirm;
-	protected String exit;
-	protected boolean move;
-	protected String repeat;
 	
 	// Basic phrases all interactions share (unless they override a certain phrase)
-	public Interaction() {
-		closing = "Thank you for speaking with me. Goodbye.";
-		confirm = "Just to confirm, did you say"; //Will be completed in RobotInteract by concatenating the keyword to the string
-		exit = "I don't think I understood you. Goodbye.";
-		move = false;
-		repeat = "I'm sorry, I didn't understand you.";
+	private String closing = "Thank you for speaking with me. Goodbye.";
+	private String confirm = "Just to confirm, did you say"; //Will be completed in RobotInteract by concatenating the keyword to the string
+	private String exit = "I don't think I understood you. Goodbye.";
+	private boolean move = false;
+	private String repeat = "I'm sorry, I didn't understand you.";
+	private String opening = "Hello";
+	private String question = "Can I help you?";
+	
+	public Interaction() {	
 	}
-
-	public abstract void repeat(int num_repeat, String repeat);
-	public abstract void toMove(boolean move);
-	public abstract String toSpeak(String phrase);
-
+	
+	protected String getClosing() {
+		return closing;
+	}
+	
+	protected void setClosing(String closing) {
+		this.closing = closing;
+	}
+	
+	
+	protected String getConfirm() {
+		return confirm;
+	}
+	
+	protected void setConfirm(String confirm) {
+		this.confirm = confirm;
+	}
+	
+	protected String getExit() {
+		return exit;
+	}
+	
+	protected void setExit(String exit) {
+		this.exit = exit;
+	}
+	
+	protected boolean getMove() {
+		return move;
+	}
+	
+	protected void setMove(boolean move) {
+		this.move = move;
+	}
+	
+	protected String getRepeat() {
+		return repeat;
+	}
+	
+	protected void setRepeat(String repeat) {
+		this.repeat = repeat;
+	}
+	
+	protected String getOpening() {
+		return opening;
+	}
+	
+	protected void setOpening(String opening) {
+		this.opening = opening;
+	}
+	
+	protected String getQuestion() {
+		return question;
+	}
+	
+	protected void setQuestion(String question) {
+		this.question = question;
+	}
 }

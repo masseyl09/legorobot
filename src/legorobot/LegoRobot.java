@@ -29,9 +29,9 @@ public class LegoRobot {
 	}*/
 
 	public static void main(String[] args) {
-		m_RobotInteract = new RobotInteract();
+		//m_RobotInteract = new RobotInteract();
 		m_Move = new Move();
-		m_Speak = new Speak();
+		//m_Speak = new Speak();
 		
 		m_Move.startMoving(1);
 		

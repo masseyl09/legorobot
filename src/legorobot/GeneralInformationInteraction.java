@@ -7,48 +7,29 @@ package legorobot;
  */
 public class GeneralInformationInteraction extends Interaction {
 
-	public String degree = "The degrees here are awesome!";
-	public String department = "We have four departments here: electrical engineering, computer engineering, software engineering, and systems engineering.";
-	public String scholarship = "There are no scholarships available right now.";
-	public String opening = "You've chosen to hear more information about our department.";
-	public String question = "Would you like information on degrees, departments, or scholarships?";
+	private String degree = "The degrees here are awesome!";
+	private String department = "We have four departments here: electrical engineering, computer engineering, software engineering, and systems engineering.";
+	private String scholarship = "There are no scholarships available right now.";
+	private String opening = "You've chosen to hear more information about our department.";
+	private String question = "Would you like information on degrees, departments, or scholarships?";
 
 	public GeneralInformationInteraction() {
 		super();
-		toSpeak(opening);
-		toSpeak(question);
+		setOpening(opening);
+		setQuestion(question);
 	}
-
-	/**
-	 * 
-	 * @param num_repeat
-	 * @param repeat
-	 */
-	public void repeat(int num_repeat, String repeat) {
-		if (num_repeat == 0) {
-			toSpeak(repeat);
-			toSpeak(question);
-		}
-		
-		else {
-			toSpeak(exit);
-		}
+	
+	/* Getters */
+	protected String getDegree() {
+		return degree;
 	}
-
-	/**
-	 * 
-	 * @param move
-	 */
-	public void toMove(boolean move) {
-
+	
+	protected String getDepartment() {
+		return department;
 	}
-
-	/**
-	 * 
-	 * @param phrase
-	 */
-	public String toSpeak(String phrase) {
-		return phrase;
+	
+	protected String getScholarship() {
+		return scholarship;
 	}
-
+	
 }

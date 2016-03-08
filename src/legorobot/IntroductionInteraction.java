@@ -7,45 +7,12 @@ package legorobot;
  */
 public class IntroductionInteraction extends Interaction {
 
-	public String opening = "Hi, I'm Lea!";
-	public String question = "Would you like information or a flyer?";
+	private String opening = "Hi, I'm Lea!";
+	private String question = "Would you like information or a flyer?";
 	
 	public IntroductionInteraction() {
 		super();
-		toSpeak(opening);
-		toSpeak(question);
+		setOpening(opening);
+		setQuestion(question);
 	}
-
-	/**
-	 * 
-	 * @param num_repeat
-	 * @param repeat
-	 */
-	public void repeat(int num_repeat, String repeat) {
-		if (num_repeat == 0) {
-			toSpeak(repeat);
-			toSpeak(question);
-		}
-		
-		else {
-			toSpeak(exit);
-		}
-	}
-
-	/**
-	 * 
-	 * @param move
-	 */
-	public void toMove(boolean move) {
-
-	}
-
-	/**
-	 * 
-	 * @param phrase
-	 */
-	public String toSpeak(String phrase) {
-		return phrase;
-	}
-
 }
