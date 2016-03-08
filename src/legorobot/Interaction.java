@@ -27,7 +27,6 @@ public abstract class Interaction {
 		this.closing = closing;
 	}
 	
-	
 	protected String getConfirm() {
 		return confirm;
 	}

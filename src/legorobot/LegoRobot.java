@@ -29,17 +29,17 @@ public class LegoRobot {
 	}*/
 
 	public static void main(String[] args) {
-		//m_RobotInteract = new RobotInteract();
-		m_Move = new Move();
-		//m_Speak = new Speak();
 		
-		m_Move.startMoving(1);
+		m_RobotInteract = new RobotInteract();
+		
+		// Start movement
+		m_RobotInteract.toMove(1); 
 		
 		// Forcing a keyword for now
-		//String keyword = "Lea";
-		//String response = m_RobotInteract.runInteraction(0, false, keyword);
+		String keyword = "Lea";
+		String response = m_RobotInteract.runInteraction(0, false, keyword);
+		m_RobotInteract.toSpeak(response);
 		
-		//m_Speak.respond(response);
 		
 		// Loop this somehow...
 		// Start moving (if not already moving)

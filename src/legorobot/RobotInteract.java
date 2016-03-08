@@ -11,33 +11,23 @@ public class RobotInteract {
 	private String keyword;
 	private int current_tier;
 	private int num_repeat = 0;
+	private String result = "No";
 	private BasicInteraction tierBasic;
 	private FlyerInformationInteraction tierFlyer;
 	private GeneralInformationInteraction tierGeneral;
 	private IntroductionInteraction tierIntroduction;
 	private Interaction tier;
-
-
+	private static Speak m_Speak;
+	private static Hear m_Hear;
+	private static Move m_Move;
 
 	public RobotInteract() {
-	}
-	
-	/**
-	 * 
-	 * @param confirm
-	 * @param current_tier
-	 */
-	public String checkConfirmation(boolean confirm, int current_tier) {
-		String result;
-		if (confirm == false) {
-			result = tierRepeat(keyword, current_tier, confirm);
-		}
-		
-		else {
-			result = tierStart(keyword, current_tier);
-		}
-		
-		return result;
+		tierBasic = new BasicInteraction();
+		tierFlyer = new FlyerInformationInteraction();
+		tierGeneral = new GeneralInformationInteraction();
+		tierIntroduction = new IntroductionInteraction();
+		m_Speak = new Speak();
+		m_Move = new Move();
 	}
 
 	/**
@@ -50,36 +40,44 @@ public class RobotInteract {
 		confirmed = confirm;
 		this.keyword = keyword;
 		this.current_tier = current_tier;
-		String result = checkConfirmation(confirm, current_tier);
 		
+		// Depending on tier, set the type of interaction we are in
+		switch (current_tier) {
+			case 0: tier = tierBasic; break;
+			case 1: tier = tierIntroduction; break;
+			case 2: tier = tierGeneral; break;
+			case 3: tier = tierFlyer; break;
+		}
+				
+		result = checkConfirmation();
 		return result;
 	}
-
-	/**
-	 * 
-	 * @param keyword
-	 * @param current_tier
-	 * @param confirm
-	 */
-	public String tierRepeat(String keyword, int current_tier, boolean confirm) {
-		String result = "No";
-		return result;
-	}
-
-	/**
-	 * 
-	 * @param keyword
-	 * @param current_tier
-	 */
-	public String tierStart(String keyword, int current_tier) {
-		String result = "Yes";
+	
+	private String checkConfirmation() {
+		if (confirmed == false) {
+			result = tierRepeat();
+		}
 		
-		if (current_tier == 0) {
-			tier = new IntroductionInteraction();	
+		else {
+			result = tierStart();
 		}
 		
 		return result;
-
 	}
 
+	private String tierRepeat() {
+		return "No";
+	}
+
+	private String tierStart() {
+		return "Yes";
+	}
+	
+	public void toSpeak(String response) {
+		m_Speak.respond(response);
+	}
+	
+	public void toMove(int move) {
+		m_Move.startMoving(move);
+	}
 }

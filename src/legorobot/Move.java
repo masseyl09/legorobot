@@ -81,8 +81,8 @@ public class Move {
 		
 		// Back up slightly to ensure turn can be completed without accidentally hitting the obstacle
 		motor_left.startSynchronization();
-		motor_left.rotate(180*2); // 1 reverse wheel turn
-		motor_right.rotate(180*2);
+		motor_left.rotate(180*3); // 1.5 reverse wheel turn
+		motor_right.rotate(180*3);
 		motor_left.endSynchronization();
 		
 		Delay.msDelay(500);
