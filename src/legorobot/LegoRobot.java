@@ -11,14 +11,13 @@ import java.util.Collection;
 public class LegoRobot {
 
 	//private Collection<Table> available_tables;
-	public int current_tier;
-	public static RobotInteract m_RobotInteract;
-	public static Speak m_Speak;
-	public static Hear m_Hear;
-	public static Move m_Move;
-
-	public LegoRobot() {
-	}
+	public int start_tier = 0;
+	public RobotInteract m_RobotInteract;
+	public Speak m_Speak;
+	public Hear m_Hear;
+	public Move m_Move;
+	public String keyword;
+	public String response;
 
 	/**
 	 * 
@@ -30,26 +29,37 @@ public class LegoRobot {
 
 	public static void main(String[] args) {
 		
-		m_RobotInteract = new RobotInteract();
+		// Create instances
+		LegoRobot robot = new LegoRobot();
+		robot.m_RobotInteract = new RobotInteract(robot);
+		robot.m_Move = new Move();
+		robot.m_Hear = new Hear();
 		
+		// Begin logic
+		robot.run();
+	}
+	
+	private void run() {
+	
 		// Start movement
-		m_RobotInteract.toMove(1); 
+		m_Move.startMoving(1);
 		
-		// Forcing a keyword for now
-		String keyword = "Lea";
-		String response = m_RobotInteract.runInteraction(0, false, keyword);
-		m_RobotInteract.toSpeak(response);
+		// Listen on the start tier
+		listen(start_tier);
+	}
+	
+	public void listen(int tier) {
 		
+		do {
+			// Forcing a keyword for now
+			keyword = m_Hear.getKeyword(tier);
+		} while (keyword.compareTo("") == 0);
 		
-		// Loop this somehow...
-		// Start moving (if not already moving)
-		/*if (!m_Move.isRobotMoving()) {
-			m_Move.startMoving(1);
-		}*/
-
-		// Listen for a keyword (maybe use a listener?)
-
-		// Stop moving when "Lea is heard", execute tier logic
+		// Stop moving, start interaction
+		if (m_Move.isRobotMoving()) {
+			m_Move.stopMoving();
+		}
+		m_RobotInteract.runInteraction(tier, true, keyword);
 	}
 
 	/**

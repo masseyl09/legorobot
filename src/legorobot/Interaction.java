@@ -9,11 +9,11 @@ public abstract class Interaction {
 	
 	// Basic phrases all interactions share (unless they override a certain phrase)
 	private String closing = "Thank you for speaking with me. Goodbye.";
-	private String confirm = "Just to confirm, did you say"; //Will be completed in RobotInteract by concatenating the keyword to the string
+	private String confirm = "Just to confirm, did you say "; //Will be completed in RobotInteract by concatenating the keyword to the string
 	private String exit = "I don't think I understood you. Goodbye.";
 	private boolean move = false;
 	private String repeat = "I'm sorry, I didn't understand you.";
-	private String opening = "Hello";
+	private String opening = "Hello.";
 	private String question = "Can I help you?";
 	
 	public Interaction() {	

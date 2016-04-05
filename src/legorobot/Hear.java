@@ -30,8 +30,15 @@ public class Hear {
 		return false;
 	}
 
-	public String getKeyword(){
-		return "";
+	public String getKeyword(int tier){
+		System.out.println("Listening...");
+		switch (tier) {
+			case 0: setKeyword("Leah"); break;
+			case 1: setKeyword("department"); break;
+			case 2: setKeyword("degrees"); break;
+			default: setKeyword(""); break;
+		}
+		return keyword;
 	}
 
 	/**
@@ -39,7 +46,7 @@ public class Hear {
 	 * @param confirm
 	 */
 	public void setConfirmed(boolean confirm){
-
+		this.confirm = confirm;
 	}
 
 	/**
@@ -47,7 +54,7 @@ public class Hear {
 	 * @param keyword
 	 */
 	public void setKeyword(String keyword){
-
+		this.keyword = keyword;
 	}
 
 	/**

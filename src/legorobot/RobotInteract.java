@@ -20,8 +20,10 @@ public class RobotInteract {
 	private static Speak m_Speak;
 	private static Hear m_Hear;
 	private static Move m_Move;
+	private LegoRobot robot;
 
-	public RobotInteract() {
+	public RobotInteract(LegoRobot robot) {
+		this.robot = robot;
 		tierBasic = new BasicInteraction();
 		tierFlyer = new FlyerInformationInteraction();
 		tierGeneral = new GeneralInformationInteraction();
@@ -36,41 +38,39 @@ public class RobotInteract {
 	 * @param confirm
 	 * @param keyword
 	 */
-	public String runInteraction(int current_tier, boolean confirm, String keyword) {
+	public void runInteraction(int current_tier, boolean confirm, String keyword) {
 		confirmed = confirm;
 		this.keyword = keyword;
 		this.current_tier = current_tier;
 		
 		// Depending on tier, set the type of interaction we are in
 		switch (current_tier) {
-			case 0: tier = tierBasic; break;
-			case 1: tier = tierIntroduction; break;
-			case 2: tier = tierGeneral; break;
-			case 3: tier = tierFlyer; break;
+			//case 0: tier = tierBasic; break;
+			case 0: tier = tierIntroduction; break;
+			case 1: tier = tierGeneral; break;
+			case 2: tier = tierFlyer; break;
 		}
-				
-		result = checkConfirmation();
-		return result;
+		checkConfirmation();
 	}
 	
-	private String checkConfirmation() {
+	private void checkConfirmation() {
 		if (confirmed == false) {
-			result = tierRepeat();
+			tierRepeat();
 		}
-		
 		else {
-			result = tierStart();
+			tierStart();
 		}
-		
-		return result;
 	}
 
 	private String tierRepeat() {
 		return "No";
 	}
 
-	private String tierStart() {
-		return "Yes";
+	private void tierStart() {
+		System.out.println(tier.getOpening());
+		System.out.println(tier.getQuestion());
+		
+		robot.listen(current_tier + 1); // Change to a get_next_tier method possibly?
 	}
 	
 	public void toSpeak(String response) {

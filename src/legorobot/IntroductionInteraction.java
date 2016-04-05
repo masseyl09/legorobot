@@ -8,7 +8,7 @@ package legorobot;
 public class IntroductionInteraction extends Interaction {
 
 	private String opening = "Hi, I'm Lea!";
-	private String question = "Would you like information or a flyer?";
+	private String question = "Would you like to hear more information about the Electrical, Computer, Software, and System Engineering Department or a flyer? Say department or flyer to choose.";
 	
 	public IntroductionInteraction() {
 		super();

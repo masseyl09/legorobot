@@ -62,7 +62,7 @@ public class Move {
 		// Motors
 		motor_left = new EV3LargeRegulatedMotor(BrickFinder.getDefault().getPort("A"));
 		motor_right = new EV3LargeRegulatedMotor(BrickFinder.getDefault().getPort("C"));
-		//motor_arms = new EV3MediumRegulatedMotor(BrickFinder.getDefault().getPort("B"));
+		motor_arms = new EV3MediumRegulatedMotor(BrickFinder.getDefault().getPort("B"));
 		
 		// Sensors
 		//Port port3 = LocalEV3.get().getPort("S3");
@@ -105,9 +105,9 @@ public class Move {
 	private void detect() {
 		
 		do {
-			// Look for objects by distance (note that she won't recognize black)
+			// Look for objects by distance (note that she won't recognize black very well)
 			ir_distance.fetchSample(ir_sample, 0);
-		} while (ir_sample[0] > 50);
+		} while (ir_sample[0] > 60);
 		
 		// Upon detection of an object, stop movement
 		motor_left.startSynchronization();
@@ -130,7 +130,7 @@ public class Move {
 		
 		if (move == 1) {
 			
-			//am_moving = true;
+			am_moving = true;
 
 			// Move forward to start
 			motor_left.synchronizeWith(new RegulatedMotor[] {motor_right});
@@ -146,8 +146,15 @@ public class Move {
 		}
 		
 		else if (move == 0) {
-			// Move the arms
-			// Not sure exactly how I want to implement this until the interaction logic is more defined...
+			
+			// Move the arms up
+			motor_arms.rotate(90);
+			
+			// Pause for 60 seconds
+			Delay.msDelay(1000*60);
+			
+			// Move the arms back down
+			motor_arms.rotate(-90);
 		}
 	}
 	
