@@ -2,11 +2,10 @@
 
 ## Description
 
-LegoRobot is an Object-Oriented Software Design, SE 555, project in which a Lego Mindstorms EV3 robot is built and programmed to wander around the Lehman building, converse with people, and hand out flyers. 
+LegoRobot is an Object-Oriented Software Design, SE 555, project in which a Lego Mindstorms EV3 robot is built and programmed to wander around the Lehman building, converse with people, and hand out flyers. A rasberry pi is used for all interactions (hearing and speaking) 
 
 Team members:
 
-* Stacy Joseph 
 * Lauren Massey
 * Jessica Updegrove
 
