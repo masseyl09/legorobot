@@ -2,6 +2,8 @@ package legorobot;
 
 import java.util.Collection;
 
+import lejos.utility.Delay;
+
 /**
  * @author Jess
  * @version 1.0
@@ -9,15 +11,6 @@ import java.util.Collection;
  */
 
 public class LegoRobot {
-
-	//private Collection<Table> available_tables;
-	public int start_tier = 0;
-	public RobotInteract m_RobotInteract;
-	public Speak m_Speak;
-	public Hear m_Hear;
-	public Move m_Move;
-	public String keyword;
-	public String response;
 
 	/**
 	 * 
@@ -30,22 +23,35 @@ public class LegoRobot {
 	public static void main(String[] args) {
 		
 		// Create instances
-		LegoRobot robot = new LegoRobot();
-		robot.m_RobotInteract = new RobotInteract(robot);
+		Robot robot = new Robot();
 		robot.m_Move = new Move();
 		robot.m_Hear = new Hear();
+
+		//robot.m_RobotInteract = new RobotInteract(robot, robot.m_Speak, robot.m_Move);
 		
 		// Begin logic
 		robot.run();
 	}
+}
+
+class Robot {
 	
-	private void run() {
+	//private Collection<Table> available_tables;
+	public int start_tier = 0;
+	public RobotInteract m_RobotInteract;
+	public Speak m_Speak;
+	public Hear m_Hear;
+	public Move m_Move;
+	public String keyword;
+	public String response;
+	
+	public void run() {
 	
 		// Start movement
-		m_Move.startMoving(1);
+		this.m_Move.startMoving(1);
 		
 		// Listen on the start tier
-		listen(start_tier);
+		//listen(start_tier);
 	}
 	
 	public void listen(int tier) {
@@ -69,5 +75,4 @@ public class LegoRobot {
 	public int setTable(int current_tier) {
 		return 0;
 	}
-
 }

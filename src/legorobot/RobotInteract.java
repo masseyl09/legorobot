@@ -17,19 +17,19 @@ public class RobotInteract {
 	private GeneralInformationInteraction tierGeneral;
 	private IntroductionInteraction tierIntroduction;
 	private Interaction tier;
-	private static Speak m_Speak;
+	private Speak m_Speak;
 	private static Hear m_Hear;
-	private static Move m_Move;
-	private LegoRobot robot;
+	private Move m_Move;
+	private Robot robot;
 
-	public RobotInteract(LegoRobot robot) {
+	public RobotInteract(Robot robot, Speak speak, Move move) {
 		this.robot = robot;
 		tierBasic = new BasicInteraction();
 		tierFlyer = new FlyerInformationInteraction();
 		tierGeneral = new GeneralInformationInteraction();
 		tierIntroduction = new IntroductionInteraction();
-		m_Speak = new Speak();
-		m_Move = new Move();
+		this.m_Speak = speak;
+		this.m_Move = move;
 	}
 
 	/**

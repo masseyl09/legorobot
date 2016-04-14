@@ -97,6 +97,7 @@ public class Move {
 		motor_left.endSynchronization();
 		
 		Delay.msDelay(500);
+		startMoving(0); // Move arms for testing
 		
 		// Start moving again
 		startMoving(1);
@@ -148,13 +149,14 @@ public class Move {
 		else if (move == 0) {
 			
 			// Move the arms up
-			motor_arms.rotate(90);
+			motor_arms.rotate(720);
+			Sound.beep();
 			
-			// Pause for 60 seconds
-			Delay.msDelay(1000*60);
+			// Pause for 10 seconds
+			Delay.msDelay(1000*5);
 			
 			// Move the arms back down
-			motor_arms.rotate(-90);
+			motor_arms.rotate(-720);
 		}
 	}
 	
