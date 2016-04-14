@@ -2,6 +2,8 @@ package legorobot;
 
 import java.util.Collection;
 
+import lejos.utility.Delay;
+
 /**
  * @author Jess
  * @version 1.0
@@ -31,11 +33,12 @@ public class Hear {
 	}
 
 	public String getKeyword(int tier){
-		System.out.println("Listening...");
 		switch (tier) {
 			case 0: setKeyword("Leah"); break;
 			case 1: setKeyword("department"); break;
-			case 2: setKeyword("degrees"); break;
+			case 2: setKeyword("degree"); break;
+			case 3: setKeyword("goodbye"); break;
+			case 4: setKeyword(" "); break;
 			default: setKeyword(""); break;
 		}
 		return keyword;

@@ -130,7 +130,6 @@ public class Move {
 	public void startMoving(int move) {
 		
 		if (move == 1) {
-			
 			am_moving = true;
 
 			// Move forward to start
@@ -147,13 +146,12 @@ public class Move {
 		}
 		
 		else if (move == 0) {
-			
 			// Move the arms up
 			motor_arms.rotate(720);
 			Sound.beep();
 			
-			// Pause for 10 seconds
-			Delay.msDelay(1000*5);
+			// Pause for 3 seconds
+			Delay.msDelay(1000*3);
 			
 			// Move the arms back down
 			motor_arms.rotate(-720);
@@ -170,11 +168,9 @@ public class Move {
 	}
 	
 	public boolean isRobotMoving() {
-		
 		if (motor_left.isMoving() || motor_right.isMoving() || am_moving) {
 			return true;
 		}
-		
 		return false;
 	}
 	

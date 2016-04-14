@@ -2,6 +2,7 @@ package legorobot;
 
 import java.util.Collection;
 
+import lejos.hardware.Sound;
 import lejos.utility.Delay;
 
 /**
@@ -26,8 +27,7 @@ public class LegoRobot {
 		Robot robot = new Robot();
 		robot.m_Move = new Move();
 		robot.m_Hear = new Hear();
-
-		//robot.m_RobotInteract = new RobotInteract(robot, robot.m_Speak, robot.m_Move);
+		robot.m_RobotInteract = new RobotInteract(robot, robot.m_Speak, robot.m_Move);
 		
 		// Begin logic
 		robot.run();
@@ -48,10 +48,10 @@ class Robot {
 	public void run() {
 	
 		// Start movement
-		this.m_Move.startMoving(1);
+		//m_Move.startMoving(1);
 		
 		// Listen on the start tier
-		//listen(start_tier);
+		listen(start_tier);
 	}
 	
 	public void listen(int tier) {
@@ -64,7 +64,15 @@ class Robot {
 		// Stop moving, start interaction
 		if (m_Move.isRobotMoving()) {
 			m_Move.stopMoving();
+//			Sound.beep();
+//			Sound.twoBeeps();
+//			Sound.beep();
 		}
+		
+		if (keyword.compareTo(" ") == 0) {
+			return; // Stop for now
+		}
+		
 		m_RobotInteract.runInteraction(tier, true, keyword);
 	}
 
