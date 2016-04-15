@@ -150,8 +150,8 @@ public class Move {
 			motor_arms.rotate(720);
 			Sound.beep();
 			
-			// Pause for 3 seconds
-			Delay.msDelay(1000*3);
+			// Pause for 5 seconds
+			Delay.msDelay(1000*5);
 			
 			// Move the arms back down
 			motor_arms.rotate(-720);

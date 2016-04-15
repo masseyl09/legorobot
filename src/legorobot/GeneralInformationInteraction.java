@@ -21,18 +21,19 @@ public class GeneralInformationInteraction extends Interaction {
 	}
 	
 	/* Getters */
-	protected String getDegree() {
+	protected String getPhrase(String keyword) {
+		String phrase = "";
 		setTimes(0);
-		return degree;
+		
+		if (keyword.compareTo("degree") == 0) {
+			phrase = degree;
+		}
+		else if (keyword.compareTo("scholarship") == 0) {
+			phrase = scholarship;
+		}
+		else if (keyword.compareTo("department") == 0) {
+			phrase = department;
+		}
+		return phrase;
 	}
-	
-	protected String getDepartment() {
-		setTimes(0);
-		return department;
-	}
-	
-	protected String getScholarship() {
-		setTimes(0);
-		return scholarship;
-	}	
 }

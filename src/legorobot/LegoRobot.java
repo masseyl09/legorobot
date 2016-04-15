@@ -13,14 +13,6 @@ import lejos.utility.Delay;
 
 public class LegoRobot {
 
-	/**
-	 * 
-	 * @param available_tables
-	 */
-	/*public int getTable(Collection<Table> available_tables){
-		return 0;
-	}*/
-
 	public static void main(String[] args) {
 		
 		// Create instances
@@ -37,7 +29,6 @@ public class LegoRobot {
 class Robot {
 	
 	//private Collection<Table> available_tables;
-	public int start_tier = 0;
 	public RobotInteract m_RobotInteract;
 	public Speak m_Speak;
 	public Hear m_Hear;
@@ -51,14 +42,14 @@ class Robot {
 		//m_Move.startMoving(1);
 		
 		// Listen on the start tier
-		listen(start_tier);
+		listen();
 	}
 	
-	public void listen(int tier) {
+	public void listen() {
 		
 		do {
 			// Forcing a keyword for now
-			keyword = m_Hear.getKeyword(tier);
+			keyword = m_Hear.getKeyword();
 		} while (keyword.compareTo("") == 0);
 		
 		// Stop moving, start interaction
@@ -73,7 +64,7 @@ class Robot {
 			return; // Stop for now
 		}
 		
-		m_RobotInteract.runInteraction(tier, true, keyword);
+		m_RobotInteract.runInteraction(true, keyword);
 	}
 
 	/**

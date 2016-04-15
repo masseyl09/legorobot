@@ -84,15 +84,7 @@ public abstract class Interaction {
 		this.times = time;
 	}
 
-	protected String getDegree() {
-		return "";
-	}
-
-	protected String getScholarship() {
-		return "";
-	}
-
-	protected String getDepartment() {
+	protected String getPhrase(String keyword) {
 		return "";
 	}
 }
