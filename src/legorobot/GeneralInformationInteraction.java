@@ -7,11 +7,11 @@ package legorobot;
  */
 public class GeneralInformationInteraction extends Interaction {
 
-	private String degree = "The degrees here are awesome!\n";
-	private String department = "We have four departments here: electrical engineering, computer engineering, software engineering, and systems engineering.\n";
-	private String scholarship = "There are no scholarships available right now.\n";
-	private String opening = "You've chosen to hear more information about our department.\n";
-	private String question = "Would you like information on degrees, departments, or scholarships?\n";
+	private String degree = "The degrees here are awesome!\n"; // gi_degree.wav
+	private String department = "We have four departments here: electrical engineering, computer engineering, software engineering, and systems engineering.\n"; //gi_department.wav
+	private String scholarship = "There are no scholarships available right now.\n"; // gi_scholarship.wav
+	private String opening = "You've chosen to hear more information about our department.\n"; // gi_opening.wav
+	private String question = "Would you like information on degrees, departments, or scholarships?\n"; // gi_question.wav
 
 	public GeneralInformationInteraction() {
 		super();

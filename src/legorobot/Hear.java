@@ -11,10 +11,7 @@ import lejos.utility.Delay;
  */
 public class Hear {
 
-	//public Collection<Table> available_tables;
 	public boolean confirm;
-	//public SerialData data;
-	//public RemotePort ears;
 	public String keyword;
 	public String text_string;
 	
@@ -46,9 +43,9 @@ public class Hear {
 		 */
 		/* tier_listen is what keywords can be heard at the current part of the convo
 		 * 0 - Leah
-		 * 1 - Information, Flyer
-		 * 2 - Degree, Scholarship (The Flyer Keywords)
-		 * 3 - Degree, Scholarship, Department (The Information Keywords)
+		 * 1 - information, flyer
+		 * 2 - degree, scholarship (The flyer Keywords)
+		 * 3 - degree, scholarship, department (The information keywords)
 		 */
 		switch (tier_listen) {
 			case 0: setKeyword("Leah"); 
@@ -74,37 +71,7 @@ public class Hear {
 			default: setKeyword(""); 
 					break;
 		}
-		return keyword;
-//		
-//		if (tier_listen == 0) {
-//			setKeyword("Leah"); 
-//			tier_listen = 1;
-//		}
-//		else if (tier_listen == 1) {
-//			// Keyword can be flyer or information
-//			setKeyword("information");
-//			if (keyword.compareTo("flyer") == 0) {
-//				tier_listen = 2;
-//			}
-//			else if (keyword.compareTo("information") == 0) {
-//				tier_listen = 3;
-//			}
-//		}
-//		else if (tier_listen == 2) {
-//			// Keyword can be degree or scholarship
-//			setKeyword("scholarship");
-//			tier_listen = 4;
-//		}
-//		else if (tier_listen == 3) {
-//			// keyword can be degree, department, or scholarship
-//			setKeyword("degree");
-//			tier_listen = 4;
-//		}
-//		else if (tier_listen == 4) {
-//			setKeyword("Goodbye");
-//			tier_listen = 0;
-//		}
-		
+		return keyword;		
 	}
 
 	/**

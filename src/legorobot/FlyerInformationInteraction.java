@@ -9,12 +9,12 @@ import lejos.utility.Delay;
  */
 public class FlyerInformationInteraction extends Interaction {
 
-	private String degree_flyer = "Take a flyer from my left hand.\n";
-	private String scholar_flyer = "Take a flyer from my right hand.\n";
-	private String degree = "The degree flyer lists information about our available degree programs here at Embry-Riddle.\n"; 
-	private String scholarship = "The scholarship flyer shows there are no available scholarships right now.\n";
-	private String opening = "You've chosen to hear more information about our flyers.\n";
-	private String question = "Would you like a flyer on degree programs or scholarship information? Say degree or scholarship.\n";
+	private String degree_flyer = "Take a flyer from my left hand.\n"; // fi_degree_flyer.wav
+	private String scholar_flyer = "Take a flyer from my right hand.\n"; // fi_scholar_flyer.wav
+	private String degree = "The degree flyer lists information about our available degree programs here at Embry-Riddle.\n"; // fi_degree.wav
+	private String scholarship = "The scholarship flyer shows there are no available scholarships right now.\n"; // fi_scholarship.wav
+	private String opening = "You've chosen to hear more information about our flyers.\n"; // fi_opening.wav
+	private String question = "Would you like a flyer on degree programs or scholarship information? Say degree or scholarship.\n"; // fi_question.wav
 	private Move m_Move;
 	
 	public FlyerInformationInteraction(Move move) {
