@@ -11,7 +11,6 @@ public abstract class Interaction {
 	private String closing = "Thank you for speaking with me. Goodbye.\n"; // i_closing.wav
 	private String confirm = "Just to confirm, did you say "; //Will be completed in RobotInteract by concatenating the keyword to the string
 	private String exit = "I don't think I understood you. Goodbye.\n";
-	private boolean move = false;
 	private String repeat = "I'm sorry, I didn't understand you.\n";
 	private String opening = "Hello.\n";
 	private String question = "Can I help you?\n";
@@ -42,14 +41,6 @@ public abstract class Interaction {
 	
 	protected void setExit(String exit) {
 		this.exit = exit;
-	}
-	
-	protected boolean getMove() {
-		return move;
-	}
-	
-	protected void setMove(boolean move) {
-		this.move = move;
 	}
 	
 	protected String getRepeat() {

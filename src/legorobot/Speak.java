@@ -19,9 +19,7 @@ import javax.speech.synthesis.*;
  */
 public class Speak {
 
-
 	public Speak() {
-
 	}
 
 	/**

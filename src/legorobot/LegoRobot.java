@@ -1,10 +1,5 @@
 package legorobot;
 
-import java.util.Collection;
-
-import lejos.hardware.Sound;
-import lejos.utility.Delay;
-
 /**
  * @author Jess
  * @version 1.0
@@ -12,7 +7,6 @@ import lejos.utility.Delay;
  */
 
 public class LegoRobot {
-
 	public static void main(String[] args) {
 		
 		// Create instances
@@ -23,55 +17,5 @@ public class LegoRobot {
 		
 		// Begin logic
 		robot.run();
-	}
-}
-
-class Robot {
-	
-	//private Collection<Table> available_tables;
-	public RobotInteract m_RobotInteract;
-	public Speak m_Speak;
-	public Hear m_Hear;
-	public Move m_Move;
-	public String keyword;
-	public String response;
-	
-	public void run() {
-	
-		// Start movement
-		//m_Move.startMoving(1);
-		
-		// Listen on the start tier
-		listen();
-	}
-	
-	public void listen() {
-		
-		do {
-			// Forcing a keyword for now
-			keyword = m_Hear.getKeyword();
-		} while (keyword.compareTo("") == 0);
-		
-		// Stop moving, start interaction
-		if (m_Move.isRobotMoving()) {
-			m_Move.stopMoving();
-//			Sound.beep();
-//			Sound.twoBeeps();
-//			Sound.beep();
-		}
-		
-		if (keyword.compareTo(" ") == 0) {
-			return; // Stop for now
-		}
-		
-		m_RobotInteract.runInteraction(true, keyword);
-	}
-
-	/**
-	 * 
-	 * @param current_tier
-	 */
-	public int setTable(int current_tier) {
-		return 0;
 	}
 }

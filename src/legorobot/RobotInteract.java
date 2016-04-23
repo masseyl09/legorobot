@@ -9,7 +9,6 @@ import lejos.utility.Delay;
  */
 public class RobotInteract {
 
-	private boolean confirmed;
 	private String keyword;
 	private BasicInteraction tierBasic;
 	private FlyerInformationInteraction tierFlyer;
@@ -33,12 +32,9 @@ public class RobotInteract {
 
 	/**
 	 * 
-	 * @param current_tier
-	 * @param confirm
 	 * @param keyword
 	 */
-	public void runInteraction(boolean confirm, String keyword) {
-		confirmed = confirm;
+	public void runInteraction(String keyword) {
 		this.keyword = keyword;
 		
 		// Depending on keyword, set the type of interaction we are in
@@ -52,30 +48,7 @@ public class RobotInteract {
 		else if (keyword.compareTo("information") == 0) {
 			tier = tierGeneral;
 		}
-		
-//		switch (current_tier) {
-//			//case 0: tier = tierBasic; break;
-//			case 0: tier = tierIntroduction; break;
-//			case 1: // Same as 2
-//			case 2: tier = tierGeneral; break;
-//			case 3: // Same as 4
-//			case 4: tier = tierFlyer; break;
-//			default: tier = tierBasic; break;
-//		}
-		checkConfirmation();
-	}
-	
-	private void checkConfirmation() {
-		if (confirmed == false) {
-			tierRepeat();
-		}
-		else {
-			tierStart();
-		}
-	}
-
-	private String tierRepeat() {
-		return "No";
+		tierStart();
 	}
 
 	private void tierStart() {
@@ -101,11 +74,11 @@ public class RobotInteract {
 		robot.listen();
 	}
 	
-	public void toSpeak(String response) {
+	protected void toSpeak(String response) {
 		m_Speak.respond(response);
 	}
 	
-	public void toMove(int move) {
+	protected void toMove(int move) {
 		m_Move.startMoving(move);
 	}
 }

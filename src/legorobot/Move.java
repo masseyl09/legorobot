@@ -29,7 +29,7 @@ public class Move {
 	
 	// Most likely centimeters (5-50)
 	private SampleProvider ir_distance;
-	float[] ir_sample;
+	private float[] ir_sample;
 	
 	/* Color ID outputs (Not sure of these values yet):
 	 * 0 - No color

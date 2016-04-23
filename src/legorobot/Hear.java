@@ -10,11 +10,6 @@ import lejos.utility.Delay;
  * @created 06-Feb-2016 3:10:08 PM
  */
 public class Hear {
-
-	public boolean confirm;
-	public String keyword;
-	public String text_string;
-	
 	/* tier_listen is what keywords can be heard at the current part of the convo
 	 * 0 - Leah
 	 * 1 - Information, Flyer
@@ -22,17 +17,9 @@ public class Hear {
 	 * 3 - Degree, Scholarship, Department (The Information Keywords)
 	 */
 	private int tier_listen = 0;
-
-	public void finalize() throws Throwable {
-
-	}
-
+	public String keyword;	
+	
 	public Hear(){
-
-	}
-
-	public boolean getConfirmed(){
-		return false;
 	}
 
 	public String getKeyword(){
@@ -76,34 +63,9 @@ public class Hear {
 
 	/**
 	 * 
-	 * @param confirm
-	 */
-	public void setConfirmed(boolean confirm){
-		this.confirm = confirm;
-	}
-
-	/**
-	 * 
 	 * @param keyword
 	 */
 	public void setKeyword(String keyword){
 		this.keyword = keyword;
 	}
-
-	/**
-	 * 
-	 * @param data
-	 */
-	/*public void setSountIn(SerialData data){
-
-	}*/
-
-	/**
-	 * 
-	 * @param data
-	 */
-	/*public String speechToText(SerialData data){
-		return "";
-	}*/
-
 }
