@@ -7,12 +7,17 @@ package legorobot;
  */
 public class GeneralInformationInteraction extends Interaction {
 
-	private String degree = "The degrees here are awesome!\n"; // gi_degree.wav
-	private String department = "We have four departments here: electrical engineering, computer engineering, software engineering, and systems engineering.\n"; //gi_department.wav
-	private String scholarship = "There are no scholarships available right now.\n"; // gi_scholarship.wav
-	private String opening = "You've chosen to hear more information about our department.\n"; // gi_opening.wav
-	private String question = "Would you like information on degrees, departments, or scholarships?\n"; // gi_question.wav
-
+	//private String degree = "In the ECSSE department we have 4 undergraduate programs,  5 masters programs, and 1 phd program.\n"; 
+	//private String department = "The Department of Electrical, Computer, Software, and Systems Engineering is part of the College of Engineering. It is located on the third floor of the Lehman Building. \n";
+	//private String scholarship = "At ERAU, there is a lot of scholarship opportunities.  The Financial Aid Office, located in the Tomcat Annex, would be able to provide you with information regarding these opportunities.  \n"; 
+	//private String opening = "You've chosen to hear more information about our department.\n"; 
+	//private String question = "I have lots of information about the ECSSE department!  Please let me know if you want to know about the degrees offered, the department, or want scholarship information. Please say either "degree", "department" , or "scholarship." \n"; 
+	private String degree = "info_degree.wav";
+	private String department = "info_department.wav";
+	private String scholarship = "info_scholarship.wav";
+	private String opening = "flyer_introduction.wav";
+	private String question = "flyer.wav";
+	
 	public GeneralInformationInteraction() {
 		super();
 		setOpening(opening);

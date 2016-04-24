@@ -59,7 +59,7 @@ public class RobotInteract {
 		if (times == 0 || times == 1) {
 			System.out.println(tier.getOpening());
 			Delay.msDelay(1000*2);
-			System.out.println(tier.getQuestion());
+			//System.out.println(tier.getQuestion());
 			if (times == 1) { // This is a tier with another question...
 				tier.setTimes(2); // Allow for the specific answer to the second question
 			}
