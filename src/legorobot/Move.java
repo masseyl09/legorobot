@@ -6,7 +6,6 @@ import lejos.hardware.BrickFinder;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.motor.EV3MediumRegulatedMotor;
-import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.Port;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3IRSensor;
@@ -21,13 +20,15 @@ import lejos.hardware.Sound;
  * @author Jess
  * @version 1.0
  * @created 06-Feb-2016 3:10:08 PM
+ * 
+ * This class contains all the movement logic for the robot. It uses an infrared sensor to detect objects and implements a 
+ * simple avoid logic. 
+ * 
  */
 public class Move {
 
 	private SensorModes color_sensor;
 	private SensorModes infrared_sensor;
-	
-	// Most likely centimeters (5-50)
 	private SampleProvider ir_distance;
 	private float[] ir_sample;
 	
@@ -41,7 +42,7 @@ public class Move {
 	 * 6 - White
 	 * 7 - Brown
 	 */
-	private SampleProvider color_idMode;
+	private SampleProvider color_idMode; // Not used currently
 	
 	// Motor assignments based off looking at LEA face on
 	private RegulatedMotor motor_left;
@@ -77,6 +78,9 @@ public class Move {
 		ir_sample = new float[ir_distance.sampleSize()];
 	}
 
+	/**
+	 * This function implements a simple avoid logic by backing LEA up and turning a random amount of degrees.
+	 */
 	private void avoid() {
 		
 		// Back up slightly to ensure turn can be completed without accidentally hitting the obstacle
@@ -85,7 +89,7 @@ public class Move {
 		motor_right.rotate(180*3);
 		motor_left.endSynchronization();
 		
-		Delay.msDelay(500);
+		Delay.msDelay(500); // Brief pause
 		
 		// Turn a random amount of degrees (between 120 and 290 so we don't head right back into the obstacle)
 		Random random = new Random();
@@ -97,12 +101,17 @@ public class Move {
 		motor_left.endSynchronization();
 		
 		Delay.msDelay(500);
-		startMoving(0); // Move arms for testing
+		startMoving(0); // Move arms for display
 		
 		// Start moving again
 		startMoving(1);
 	}
-
+	
+	/**
+	 * This function uses the IR sensor to fetch distance data. It collects data until something is seen within a certain 
+	 * distance. Upon detection the motors are stopped and the robot beeps to indicate it has detected an obstacle.
+	 * Then avoid is called.
+	 */
 	private void detect() {
 		
 		do {
@@ -115,7 +124,6 @@ public class Move {
 		motor_left.stop();
 		motor_right.stop();
 		motor_left.endSynchronization();
-		
 		Delay.msDelay(500);
 		
 		// Run avoid
@@ -124,6 +132,9 @@ public class Move {
 	}
 
 	/**
+	 * This function starts moving the robot. It takes an integer value to determine which motor to move.
+	 * am_moving will be used in future versions to stop movement when LEA is heard and start movement again when
+	 * the conversation is over.
 	 * 
 	 * @param move - integer value 0 for arms, 1 for feet
 	 */
@@ -135,9 +146,7 @@ public class Move {
 			// Move forward to start
 			motor_left.synchronizeWith(new RegulatedMotor[] {motor_right});
 			motor_left.startSynchronization();
-			//motor_left.forward();
-			//motor_right.forward();
-			motor_left.backward(); // It's backwards now for some reason (backward goes forward and vice versa).......
+			motor_left.backward(); // It's backwards for some reason (backward goes forward and vice versa)...
 			motor_right.backward();
 			motor_left.endSynchronization();
 
@@ -146,6 +155,7 @@ public class Move {
 		}
 		
 		else if (move == 0) {
+			
 			// Move the arms up
 			motor_arms.rotate(720);
 			Sound.beep();
@@ -157,7 +167,9 @@ public class Move {
 			motor_arms.rotate(-720);
 		}
 	}
-	
+	/**
+	 * This function stops the robot if it is moving and sets am_moving to false. 
+	 */
 	public void stopMoving() {
 		motor_left.synchronizeWith(new RegulatedMotor[] {motor_right});
 		motor_left.startSynchronization();
@@ -167,6 +179,9 @@ public class Move {
 		am_moving = false;
 	}
 	
+	/**
+	 * This function returns if the robot is currently moving in any way.
+	 */
 	public boolean isRobotMoving() {
 		if (motor_left.isMoving() || motor_right.isMoving() || am_moving) {
 			return true;

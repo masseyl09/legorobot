@@ -4,6 +4,8 @@ package legorobot;
  * @author Jess
  * @version 1.0
  * @created 06-Feb-2016 3:10:08 PM
+ * 
+ * This class defines the required information for all Interactions and provides getters and setters for all fields.
  */
 public abstract class Interaction {
 	
@@ -13,12 +15,12 @@ public abstract class Interaction {
 	private String opening = ""; // implemented in subclasses
 	private String question = ""; // implemented in subclasses
 	private String closing = "goodbye.wav";
-	
 	protected int times = 0;
 	
 	public Interaction() {	
 	}
 	
+	// Getters and Setters
 	protected String getClosing() {
 		return closing;
 	}

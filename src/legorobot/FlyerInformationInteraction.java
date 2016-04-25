@@ -1,54 +1,49 @@
 package legorobot;
 
-import lejos.utility.Delay;
-
 /**
  * @author Jess
  * @version 1.0
  * @created 06-Feb-2016 3:10:08 PM
+ * 
+ * This class defines the specific implementation of the Flyer Information tier.
  */
 public class FlyerInformationInteraction extends Interaction {
 
-	private Move m_Move;
-	private Speak m_Speak;
+	private Robot robot;
 	private String degree_flyer = "flyer_degree.wav";
 	private String scholar_flyer = "flyer_scholarship.wav";
 	private String degree = "flyer_degree_info.wav";
-	private String scholarship = "flyer_scholarship_info(1).wav";
+	private String scholarship = "flyer_scholarship_info.wav";
 	private String opening = "flyer_introduction.wav";
 	private String question = "flyer.wav";
 	
-	public FlyerInformationInteraction(Move move, Speak speak) {
+	/**
+	 * This class needs access to the robot to speak some extra info and move the arms to hand out flyers.
+	 * @param robot - Robot
+	 */
+	public FlyerInformationInteraction(Robot robot) {
 		super();
 		setOpening(opening);
 		setQuestion(question);
-		this.m_Move = move;
-		this.m_Speak = speak;
-		times++;
+		this.robot = robot;
+		times++; // Increment times to indicate we have a second question
 	}
 	
-	/* Getters */
+	// Getter that changes the convo depending on the answer to the question
 	protected String getPhrase(String keyword) {
-		String phrase = "";
-		setTimes(0);
+		setTimes(0); // Set times back to zero since this is the end of this convo branch
+		String phrase = ""; // Default in case there is an error when checking the keyword
+		
 		if (keyword.compareTo("degree") == 0) {
-			toSpeak(degree_flyer);
-			moveArms();
+			robot.toSpeak(degree_flyer);
+			robot.toMove(0);
 			phrase = degree;
 		}
 		else if (keyword.compareTo("scholarship") == 0) {
-			toSpeak(scholar_flyer);
-			moveArms();
+			robot.toSpeak(scholar_flyer);
+			robot.toMove(0);
 			phrase = scholarship;
 		}
 		return phrase;
-	}
-	
-	private void moveArms() {
-		m_Move.startMoving(0);
-	}
-	
-	private void toSpeak(String response) {
-		m_Speak.respond(response);
 	}
 }

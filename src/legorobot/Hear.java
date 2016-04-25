@@ -1,16 +1,21 @@
 package legorobot;
 
-import java.util.Collection;
-
-import lejos.utility.Delay;
-
 /**
  * @author Jess
  * @version 1.0
  * @created 06-Feb-2016 3:10:08 PM
  */
+
+/** 
+ * This class represents the hearing interface between the robot and the listening code (on the Raspberry Pi).
+ * Currently this class hardcodes the conversation tier by setting the keywords in the correct tiers. 
+ * In the future, the keyword would be set by retrieving it from the listening code.
+ * This could not be implemented because of schedule and hardware restrictions.
+ * 
+ * @author JessUpde
+ */
 public class Hear {
-	/* tier_listen is what keywords can be heard at the current part of the convo
+	/* tier_listen is which keywords can be heard at the current part of the convo (i.e. the convo tree)
 	 * 0 - Leah
 	 * 1 - Information, Flyer
 	 * 2 - Degree, Scholarship (The Flyer Keywords)
@@ -23,11 +28,11 @@ public class Hear {
 	}
 
 	public String getKeyword(){
-		
 		/*
 		 * This function is forced to set the conversation a certain way. The tier_listen should be dynamically set 
 		 * depending on which keyword was heard when actually listening.
 		 */
+		
 		/* tier_listen is what keywords can be heard at the current part of the convo
 		 * 0 - Leah
 		 * 1 - information, flyer
@@ -61,10 +66,7 @@ public class Hear {
 		return keyword;		
 	}
 
-	/**
-	 * 
-	 * @param keyword
-	 */
+	// Keyword setter
 	public void setKeyword(String keyword){
 		this.keyword = keyword;
 	}

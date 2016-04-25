@@ -4,6 +4,8 @@ package legorobot;
  * @author Jess
  * @version 1.0
  * @created 06-Feb-2016 3:10:08 PM
+ * 
+ * This class defines the specific implementation of the General Information tier.
  */
 public class GeneralInformationInteraction extends Interaction {
 
@@ -17,13 +19,13 @@ public class GeneralInformationInteraction extends Interaction {
 		super();
 		setOpening(opening);
 		setQuestion(question);
-		times++;
+		times++; // Increment times to indicate we have a second question
 	}
 	
-	/* Getters */
+	// Getter that changes the convo depending on the answer to the question
 	protected String getPhrase(String keyword) {
-		String phrase = "";
-		setTimes(0);
+		setTimes(0); // Set times back to zero since this is the end of this convo branch
+		String phrase = ""; // Default in case there is an error when checking the keyword
 		
 		if (keyword.compareTo("degree") == 0) {
 			phrase = degree;
