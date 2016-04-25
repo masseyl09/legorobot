@@ -13,6 +13,7 @@ public class LegoRobot {
 		Robot robot = new Robot();
 		robot.m_Move = new Move();
 		robot.m_Hear = new Hear();
+		robot.m_Speak = new Speak();
 		robot.m_RobotInteract = new RobotInteract(robot, robot.m_Speak, robot.m_Move);
 		
 		// Begin logic

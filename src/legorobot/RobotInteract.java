@@ -23,7 +23,7 @@ public class RobotInteract {
 	public RobotInteract(Robot robot, Speak speak, Move move) {
 		this.robot = robot;
 		tierBasic = new BasicInteraction();
-		tierFlyer = new FlyerInformationInteraction(move);
+		tierFlyer = new FlyerInformationInteraction(move, speak);
 		tierGeneral = new GeneralInformationInteraction();
 		tierIntroduction = new IntroductionInteraction();
 		this.m_Speak = speak;
@@ -40,6 +40,8 @@ public class RobotInteract {
 		// Depending on keyword, set the type of interaction we are in
 		// If-else on the keyword to set the tier type
 		if (keyword.compareTo("Leah") == 0) {
+			System.out.println("Listening...");
+			Delay.msDelay(1000);
 			tier = tierIntroduction;
 		}
 		else if (keyword.compareTo("flyer") == 0) {
@@ -52,25 +54,22 @@ public class RobotInteract {
 	}
 
 	private void tierStart() {
-		System.out.println("\nYou said: " + keyword + "\n");
-		Delay.msDelay(1000*5);
 		times = tier.getTimes();
-
+		
 		if (times == 0 || times == 1) {
-			System.out.println(tier.getOpening());
+			toSpeak(tier.getOpening());
 			Delay.msDelay(1000*2);
-			//System.out.println(tier.getQuestion());
 			if (times == 1) { // This is a tier with another question...
+				toSpeak(tier.getQuestion());
 				tier.setTimes(2); // Allow for the specific answer to the second question
 			}
 		}
 		else if (tier.getTimes() == 2) {
-			System.out.println(tier.getPhrase(keyword));
-			Delay.msDelay(1000*5);
-			System.out.println(tier.getClosing());
+			Delay.msDelay(1000*2);
+			toSpeak(tier.getPhrase(keyword));
+			Delay.msDelay(1000);
+			toSpeak(tier.getClosing());
 		}
-		
-		Delay.msDelay(1000*5);
 		robot.listen();
 	}
 	

@@ -33,9 +33,6 @@ class Robot {
 		// Stop moving, start interaction
 		if (m_Move.isRobotMoving()) {
 			m_Move.stopMoving();
-//			Sound.beep();
-//			Sound.twoBeeps();
-//			Sound.beep();
 		}
 		
 		if (keyword.compareTo(" ") == 0) {

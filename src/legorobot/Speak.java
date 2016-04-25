@@ -22,32 +22,9 @@ public class Speak {
 	public Speak() {
 	}
 
-	/**
-	 * 
-	 * @param response
-	 */
 	public void respond(String response){
-	/*	try {
-			Synthesizer leaTalk = Central.createSynthesizer(new SynthesizerModeDesc(null, "general", Locale.US, null, null));
-			leaTalk.speak(response, null);
-			leaTalk.waitEngineState(Synthesizer.QUEUE_EMPTY);
-
-		} catch (Exception e){
-			e.printStackTrace();
-		}*/
-		
-		/*File soundFile = new File("/Users/JessUpde/legorobot/intro.wav");
-		int error = Sound.playSample(soundFile);
-		System.out.println(error);*/
-		
-		// Pseudo speaking for now (beeps once for yes, two for now)
-		if (response.compareTo("Yes") == 0) {
-			Sound.beep();
-		}
-		else {
-			Sound.twoBeeps();
-		}
-		
+		File soundFile = new File(response);
+		Sound.playSample(soundFile, 100);		
 	}
 
 }

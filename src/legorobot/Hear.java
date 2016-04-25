@@ -38,7 +38,7 @@ public class Hear {
 			case 0: setKeyword("Leah"); 
 					tier_listen = 1;
 					break;
-			case 1: setKeyword("flyer"); // Hardcoded for now
+			case 1: setKeyword("flyer"); // Hardcoded because listening is not incorporated yet
 					if (keyword.compareTo("flyer") == 0) {
 						tier_listen = 2;
 					}
@@ -46,10 +46,10 @@ public class Hear {
 						tier_listen = 3;
 					}
 					break;
-			case 2: setKeyword("scholarship"); // Hardcoded for now
+			case 2: setKeyword("scholarship"); // Hardcoded because listening is not incorporated yet
 					tier_listen = 4;
 					break;
-			case 3: setKeyword("degree"); // Hardcoded for now
+			case 3: setKeyword("department"); // Hardcoded because listening is not incorporated yet
 					tier_listen = 4;
 					break;
 			case 4: setKeyword(" "); // Forced close for now

@@ -7,14 +7,11 @@ package legorobot;
  */
 public abstract class Interaction {
 	
-	// Basic phrases all interactions share (unless they override a certain phrase)
-	//private String closing = "Thank you for talking with me! If you would like any more information please just say my name!! \n"; 
-	private String confirm = "Just to confirm, did you say "; //Will be completed in RobotInteract by concatenating the keyword to the string
-	private String exit = "I don't think I understood you. Goodbye.\n";//not implemented
-	private String repeat = "I'm sorry, I didn't understand you.\n";//not implemented
-	private String opening = "Hello.\n"; //not implemented
-	private String question = "Can I help you?\n"; //not implemented
-	
+	// Basic phrases all interactions share
+	private String exit = "";// implemented in subclasses
+	private String repeat = "";// implemented in subclasses
+	private String opening = ""; // implemented in subclasses
+	private String question = ""; // implemented in subclasses
 	private String closing = "goodbye.wav";
 	
 	protected int times = 0;
@@ -28,14 +25,6 @@ public abstract class Interaction {
 	
 	protected void setClosing(String closing) {
 		this.closing = closing;
-	}
-	
-	protected String getConfirm() {
-		return confirm;
-	}
-	
-	protected void setConfirm(String confirm) {
-		this.confirm = confirm;
 	}
 	
 	protected String getExit() {
